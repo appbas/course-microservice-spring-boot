@@ -2,19 +2,28 @@ package br.com.appbas.rest.webservices.restfulwebservices.user;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
+@Entity(name = "user_details")
 public class User {
 
+	@Id
+	@GeneratedValue
 	private Integer id;
 
 	@NotEmpty(message = "Required name")
 	@Size(min = 3, message = "Name should have atleast 3 characters")
+	@Column
 	private String name;
 	
 	@Past(message = "Birth date should be in the past")
+	@Column(name = "birth_date")
 	private LocalDate birthday;
 
 	public User(Integer id, String name, LocalDate birthday) {
