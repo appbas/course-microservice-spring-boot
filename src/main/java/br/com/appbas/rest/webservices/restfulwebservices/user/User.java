@@ -25,6 +25,10 @@ public class User {
 	@Past(message = "Birth date should be in the past")
 	@Column(name = "birth_date")
 	private LocalDate birthday;
+	
+	public User() {
+		
+	}
 
 	public User(Integer id, String name, LocalDate birthday) {
 		super();
